@@ -1,0 +1,12 @@
+.quiz-code {
+  width: 500px;
+  height: 600px;
+  margin-top: 50px;
+}
+
+.quiz-code pre code {
+    min-height: 250px;
+    min-height: 100px;
+    padding: 25px;
+    border-radius: 6px;
+} 
