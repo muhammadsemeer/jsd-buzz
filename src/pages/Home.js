@@ -8,10 +8,16 @@ const Home = () => {
       <main>
         <aside>
           <Quiz />
+          <div className="md">
+          <SocialCards />
+          </div>
         </aside>
         <aside>
           <QuizCode />
+          <div className="lg">
           <SocialCards />
+          </div>
+  
         </aside>
       </main>
     </>

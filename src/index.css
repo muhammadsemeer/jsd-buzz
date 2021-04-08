@@ -11,18 +11,31 @@ body {
 }
 
 main {
-  height: calc(100vh - 60px);
-  margin: 60px 25px 0 25px;
+  margin: 60px 25px;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
 }
 
 main aside {
   margin: 0 15px;
 }
 
+main aside .md {
+  display: none;
+}
+
 @media (max-width: 768px) {
   main {
     margin-top: 100px;
+  }
+}
+
+@media (max-width: 1110px) {
+  main aside .md {
+    display: flex;
+  }
+  main aside .lg {
+    display: none;
   }
 }

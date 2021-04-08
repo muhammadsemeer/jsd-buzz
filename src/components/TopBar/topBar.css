@@ -52,6 +52,7 @@ header aside p span {
 @media (max-width: 768px) {
     header {
         justify-content: center;
+        z-index: 999999;
     }
     header aside {
         font-size: 18px;

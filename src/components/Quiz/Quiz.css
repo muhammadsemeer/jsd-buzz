@@ -1,5 +1,5 @@
 .quiz {
-  width: 500px;
+  width: 400px;
   height: 600px;
   display: flex;
   flex-direction: column;
@@ -59,4 +59,21 @@
   font-weight: bold;
   border: none;
   font-size: 20px;
+}
+
+@media (min-width: 550px) {
+  .quiz {
+    width: 500px;
+  }
+}
+@media (max-width: 550px) {
+  .quiz .options .option-feild input:checked ~ label {
+    border: 2px solid #84ff82;
+    transform: translateX(5px);
+  }
+}
+@media (max-width: 400px) {
+  .quiz {
+    width: 300px;
+  }
 }

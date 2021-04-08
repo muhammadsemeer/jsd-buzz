@@ -1,5 +1,5 @@
 .quiz-code {
-  width: 500px;
+  width: 400px;
   padding-top: 50px;
 }
 
@@ -9,3 +9,14 @@
     padding: 25px;
     border-radius: 6px;
 } 
+
+@media (min-width: 550px) {
+  .quiz-code {
+    width: 500px;
+  }
+}
+@media (max-width: 400px) {
+  .quiz-code {
+    width: 300px;
+  }
+}

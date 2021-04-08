@@ -3,6 +3,7 @@
   justify-content: space-evenly;
   margin-top: 25px;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .social-cards .cards {
@@ -11,6 +12,7 @@
   background: #ffffff;
   border: 1px solid #ececec;
   border-radius: 4px;
+  margin: 5px;
 }
 .social-cards .card1 {
   padding: 20px;
