@@ -1,0 +1,42 @@
+.social-cards {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 25px;
+  align-items: flex-start;
+}
+
+.social-cards .cards {
+  width: 225px;
+  min-height: 250px;
+  background: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+}
+.social-cards .card1 {
+  padding: 20px;
+}
+
+.social-cards .cards .answered {
+  border-bottom: 1px solid #ececec;
+  padding-bottom: 10px;
+}
+
+.social-cards .cards .head {
+  color: #bbb;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.social-cards .cards .share-links {
+  padding-top: 10px;
+}
+
+.social-cards .cards .share-links a {
+  display: flex;
+  text-decoration: none;
+  color: attr(color);
+}
+
+.social-cards .cards .share-links a img {
+    margin-right: 5px;
+}

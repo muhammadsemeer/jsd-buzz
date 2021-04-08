@@ -1,5 +1,6 @@
 import { Quiz } from "../components/Quiz/Quiz";
 import QuizCode from "../components/QuizCode/QuizCode";
+import SocialCards from "../components/SocialCards/SocialCards";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
         </aside>
         <aside>
           <QuizCode />
+          <SocialCards />
         </aside>
       </main>
     </>

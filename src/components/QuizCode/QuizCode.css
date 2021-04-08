@@ -1,7 +1,6 @@
 .quiz-code {
   width: 500px;
-  height: 600px;
-  margin-top: 50px;
+  padding-top: 50px;
 }
 
 .quiz-code pre code {
