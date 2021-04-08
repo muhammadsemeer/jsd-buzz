@@ -50,14 +50,13 @@
 }
 
 .quiz .options .option-feild input:checked ~ label::before {
-  content: "\2713";
-  background: #84ff82;
+  content: url(./check.svg);
   box-shadow: 0px 4px 4px rgba(132, 255, 130, 0.25);
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  border-color: #84ff82;
+  border: none;
   font-size: 20px;
 }
