@@ -1,55 +1,59 @@
-import { useForm } from "../../utils/useForm/useForm";
-import "./Quiz.css"
+import { useState } from "react";
+import "./Quiz.css";
+import party from "party-js";
 
-export const Quiz = () => {
-  const [value, handleChange] = useForm({
-    answer: "",
-  });
+const Quiz = ({ quiz }) => {
+  const { question, answerOptions } = quiz;
+  const [answered, setAnswered] = useState(false);
+  const checkAnswer = (event) => {
+    setAnswered(true);
+    if (answerOptions[event.target.id].isCorrect) {
+      party.cursor({
+        color: ["#ff5858", "#84ff82", "#ffd540", "#5891ff"],
+        count: party.variation(50, 0.5),
+        size: party.minmax(6, 10),
+        velocity: party.minmax(-300, -600),
+        angularVelocity: party.minmax(6, 9),
+        shape: [
+          "star",
+          "square",
+          "circle",
+          "rectangle",
+          "ellipse",
+          "rounded-square",
+          "rounded-rectangle",
+        ],
+      });
+      console.log(true);
+    } else {
+      document.getElementById(event.target.dataset.label).classList.add("wrong")
+      console.log(false);
+    }
+  };
   return (
     <div className="quiz">
-      <h2 className="question">What will Be The Output</h2>
+      <h2 className="question">{question}</h2>
       <div className="options">
-        <div className="option-feild">
-          <input
-            type="radio"
-            name="answer"
-            id="option1"
-            onClick={handleChange}
-            hidden
-          />
-          <label htmlFor="option1">loerm ipsem</label>
-        </div>
-        <div className="option-feild">
-          <input
-            type="radio"
-            name="answer"
-            id="option2"
-            onClick={handleChange}
-            hidden
-          />
-          <label htmlFor="option2">loerm ipsem</label>
-        </div>
-        <div className="option-feild">
-          <input
-            type="radio"
-            name="answer"
-            id="option3"
-            onClick={handleChange}
-            hidden
-          />
-          <label htmlFor="option3">loerm ipsem</label>
-        </div>
-        <div className="option-feild">
-          <input
-            type="radio"
-            name="answer"
-            id="option4"
-            onClick={handleChange}
-            hidden
-          />
-          <label htmlFor="option4">loerm ipsem</label>
-        </div>
+        {answerOptions.map((data, index) => (
+          <div key={index} className="option-feild">
+            <input
+              type="radio"
+              name="answer"
+              id={index}
+              data-label={`label${index}`}
+              onClick={checkAnswer}
+              value={data.answerText}
+              hidden
+              disabled={answered ? true : false}
+            />
+            <label id={`label${index}`} htmlFor={index}>
+              {data.answerText}
+            </label>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
+
+export default Quiz;
