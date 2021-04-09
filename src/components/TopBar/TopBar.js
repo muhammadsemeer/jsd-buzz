@@ -5,12 +5,20 @@ const TopBar = () => {
     <header>
       <aside>
         <h1>
-          <span className="logo">{"{ }"}</span>JSD BUZZ
+          <span className="logo">{"{ }"}</span>
+          JSD BUZZ
         </h1>
       </aside>
       <aside>
         <p>
-          Super Powered By <span>Galaxieon ⚡</span>
+          Super Powered By{" "}
+          <a
+            href="https://galaxieon.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Galaxieon ⚡
+          </a>
         </p>
       </aside>
     </header>
