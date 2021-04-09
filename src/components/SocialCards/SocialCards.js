@@ -1,8 +1,7 @@
 import "./SocialCards.css";
-import twitter from "../../twitter.svg";
-import facebook from "../../facebook.svg";
+import telegram from "../../telegram.svg";
 import whatsapp from "../../whatsapp.svg";
-import link from "../../link.svg";
+import logo from "../../jsd.jpg";
 
 const SocialCards = () => {
   return (
@@ -15,25 +14,8 @@ const SocialCards = () => {
         <div className="share-links">
           <p className="head">Share</p>
           <a
-            href="#"
-            target="_blank"
-            style={{ color: "#00AAEC" }}
-            rel="noopener noreferrer"
-          >
-            <img src={twitter} alt="twitter" />
-            Share on Twitter
-          </a>
-          <a
-            href="#"
-            target="_blank"
-            style={{ color: "#4460A0" }}
-            rel="noopener noreferrer"
-          >
-            <img src={facebook} alt="facebook" />
-            Share on Facebook
-          </a>
-          <a
-            href="#"
+            href={`whatsapp://send?text=Take a Daily Quiz on JSD BUZZ ${process.env.REACT_APP_PUBLIC_URL}`}
+            data-action="share/facenoook/share"
             target="_blank"
             style={{ color: "#00D856" }}
             rel="noopener noreferrer"
@@ -42,17 +24,30 @@ const SocialCards = () => {
             Share on Whatsapp
           </a>
           <a
-            href="#"
+            href={`tg://msg_url?url=Take a Daily Quiz on JSD BUZZ ${process.env.REACT_APP_PUBLIC_URL}`}
             target="_blank"
-            style={{ color: "#FF5B8C" }}
+            style={{ color: "#0088CC" }}
             rel="noopener noreferrer"
           >
-            <img src={link} alt="link" />
-            Share Link
+            <img src={telegram} alt="link" />
+            Share on Telegram
           </a>
         </div>
       </div>
-      <div className="cards"></div>
+      <div className="cards card2">
+        <div className="logo">
+          <img src={logo} alt="" />
+        </div>
+        <h2>Js Developers</h2>
+        <p>Join our JSD community and we can develop as a family.</p>
+        <a
+          href="https://chat.whatsapp.com/FZNbeGS3CodFT0V6DVu9el"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join
+        </a>
+      </div>
     </div>
   );
 };
