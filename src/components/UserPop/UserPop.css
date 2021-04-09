@@ -1,0 +1,74 @@
+body.no-scroll {
+  overflow: hidden;
+}
+
+.user-pop {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  background: rgba(34, 34, 52, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-pop .pop {
+  width: 350px;
+  height: 350px;
+  background: #fff;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #222061;
+}
+
+.user-pop .pop h1 {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 50px;
+}
+.user-pop .pop h2 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.user-pop .pop p {
+  color: #4e4b66;
+  line-height: 36px;
+}
+
+.user-pop .pop label {
+  width: 270px;
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.user-pop .pop input {
+  width: 275px;
+  height: 40px;
+  padding: 15px;
+  background: rgba(113, 113, 113, 0.2);
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: "Mulish";
+  color: #222061;
+}
+
+.user-pop .pop button {
+  margin: 10px 0;
+  background: #5f2eea;
+  border-radius: 28px;
+  border: none;
+  width: 175px;
+  height: 40px;
+  color: #fff;
+  font-family: "Mulish";
+  font-weight: bold;
+  font-size: 16px;
+}
