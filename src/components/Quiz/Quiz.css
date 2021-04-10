@@ -19,7 +19,7 @@
 .quiz .options .option-feild label {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
   width: 100%;
   min-height: 50px;
   background: #ffffff;
@@ -70,6 +70,43 @@
   content: url(./wrong.svg) !important;
 }
 
+.quiz .options .option-feild label div {
+  width: 100%;
+}
+
+.quiz .options .option-feild label .content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.quiz .options .option-feild label .content .percentage {
+  font-size: 20px;
+}
+
+.quiz .options .option-feild label .progress {
+  width: 90%;
+  height: 10px;
+  border-radius: 4px;
+  background: #f3f3f3;
+  margin: 10px;
+}
+
+.quiz .options .option-feild label .progress span {
+  display: flex;
+  border-radius: 4px;
+  height: 10px;
+  animation: width 0.5s ease-in;
+}
+
+.wrong .progress span {
+  background: #ff5858;
+}
+
+.correct .progress span {
+  background: #84ff82;
+}
+
 @keyframes error {
   0% {
     transform: translate(30px);
@@ -88,6 +125,12 @@
   }
   100% {
     transform: translate(0px);
+  }
+}
+
+@keyframes width {
+  0% {
+    width: 0;
   }
 }
 

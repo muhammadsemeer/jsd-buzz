@@ -9,6 +9,7 @@ const Quiz = ({ quiz }) => {
   const { question, answerOptions, _id } = quiz[0];
   const [answered, setAnswered] = useState(false);
   const [answer, setAnswer] = useState({});
+  const [stats, setStats] = useState();
   const checkAnswer = (event) => {
     setAnswered(true);
     if (answerOptions[event.target.id].isCorrect) {
@@ -28,20 +29,36 @@ const Quiz = ({ quiz }) => {
           "rounded-rectangle",
         ],
       });
-      axios.patch(`/quiz/answer/${_id}`, {
-        answered_by: auth.name,
-        option: event.target.id,
-        isCorrect: true,
-      });
+      axios
+        .patch(`/quiz/answer/${_id}`, {
+          answered_by: auth.name,
+          option: event.target.id,
+          isCorrect: true,
+        })
+        .then(() => {
+          document.getElementById(`prog${event.target.id}`).style.background =
+            "#84ff82";
+          axios.get("/quiz/stats").then(({ data }) => {
+            setStats(data);
+          });
+        });
     } else {
       document
         .getElementById(event.target.dataset.label)
         .classList.add("wrong");
-      axios.patch(`/quiz/answer/${_id}`, {
-        answered_by: auth.name,
-        option: event.target.id,
-        isCorrect: false,
-      });
+      axios
+        .patch(`/quiz/answer/${_id}`, {
+          answered_by: auth.name,
+          option: event.target.id,
+          isCorrect: false,
+        })
+        .then(() => {
+          document.getElementById(`prog${event.target.id}`).style.background =
+            "#ff5858";
+          axios.get("/quiz/stats").then(({ data }) => {
+            setStats(data);
+          });
+        });
     }
   };
   useEffect(() => {
@@ -55,8 +72,11 @@ const Quiz = ({ quiz }) => {
           setAnswer(data);
         }
       });
+    axios.get("/quiz/stats").then(({ data }) => {
+      setStats(data);
+    });
   }, [auth.name]);
-  console.log(answer);
+  const colors = ["#f53b86", "#ffd540", "#4199ff", "#6e76ff"];
   return (
     <div className="quiz">
       <h2 className="question">{question}</h2>
@@ -74,14 +94,35 @@ const Quiz = ({ quiz }) => {
                   value={data.answerText}
                   checked
                   hidden
-                  disabled={answered ? true : false}
+                  disabled
                 />
                 <label
                   id={`label${index}`}
-                  className={answer.isCorrect ? "" : "wrong"}
+                  className={answer.isCorrect ? "correct" : "wrong"}
                   htmlFor={index}
                 >
-                  {data.answerText}
+                  <div>
+                    <div className="content">
+                      <span className="op">{data.answerText}</span>
+                      <span className="percentage">
+                        {stats
+                          ? (stats.options[index] / stats.totalAnswers) * 100
+                          : 0}
+                        %
+                      </span>
+                    </div>
+                    <div className="progress">
+                      <span
+                        style={{
+                          width: stats
+                            ? (stats.options[index] / stats.totalAnswers) *
+                                100 +
+                              "%"
+                            : 0 + "%",
+                        }}
+                      ></span>
+                    </div>
+                  </div>
                 </label>
               </>
             ) : (
@@ -97,7 +138,34 @@ const Quiz = ({ quiz }) => {
                   disabled={answered ? true : false}
                 />
                 <label id={`label${index}`} htmlFor={index}>
-                  {data.answerText}
+                  <div>
+                    <div className="content">
+                      <span className="op">{data.answerText}</span>
+                      {answered ? (
+                        <span className="percentage">
+                          {stats
+                            ? (stats.options[index] / stats.totalAnswers) * 100
+                            : 0}
+                          %
+                        </span>
+                      ) : null}
+                    </div>
+                    {answered ? (
+                      <div className="progress">
+                        <span
+                          id={`prog${index}`}
+                          style={{
+                            width: stats
+                              ? (stats.options[index] / stats.totalAnswers) *
+                                  100 +
+                                "%"
+                              : 0 + "%",
+                            background: colors[index],
+                          }}
+                        ></span>
+                      </div>
+                    ) : null}
+                  </div>
                 </label>
               </>
             )}
