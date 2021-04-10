@@ -37,7 +37,9 @@ const Home = () => {
           </div>
         </aside>
         <aside>
-          {quiz[0]?.questionCode ? <QuizCode /> : null}
+          {quiz[0]?.questionCode ? (
+            <QuizCode code={quiz[0].questionCode} />
+          ) : null}
           <div className="lg">
             <SocialCards />
           </div>
