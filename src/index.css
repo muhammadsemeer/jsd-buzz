@@ -25,6 +25,17 @@ main aside .md {
   display: none;
 }
 
+.info {
+  margin: 20px 0;
+  text-align: center;
+  color: #222061;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 768px) {
   main {
     margin-top: 100px;

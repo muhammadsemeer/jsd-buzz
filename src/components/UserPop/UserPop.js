@@ -21,7 +21,6 @@ const UserPop = () => {
     setName(event.target.value);
     setList(fuse.search(event.target.value));
   };
-  console.log(list);
   const getUser = () => {
     axios.get("/user").then((response) => {
       setUsers(response.data);

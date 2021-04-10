@@ -3,7 +3,7 @@ import "./Quiz.css";
 import party from "party-js";
 
 const Quiz = ({ quiz }) => {
-  const { question, answerOptions } = quiz;
+  const { question, answerOptions } = quiz[0];
   const [answered, setAnswered] = useState(false);
   const checkAnswer = (event) => {
     setAnswered(true);
@@ -26,7 +26,9 @@ const Quiz = ({ quiz }) => {
       });
       console.log(true);
     } else {
-      document.getElementById(event.target.dataset.label).classList.add("wrong")
+      document
+        .getElementById(event.target.dataset.label)
+        .classList.add("wrong");
       console.log(false);
     }
   };
