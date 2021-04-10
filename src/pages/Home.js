@@ -13,6 +13,9 @@ const Home = () => {
   useEffect(() => {
     axios.get("/quiz").then((response) => {
       setQuiz(response.data);
+      if (response.data.length !==0){
+        setLoad(true)
+      } 
     });
   }, []);
   const { auth } = useContext(authContext);
