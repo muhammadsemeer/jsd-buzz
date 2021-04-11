@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 25px;
-  align-items: flex-start;
   flex-wrap: wrap;
 }
 
@@ -36,7 +35,7 @@
 .social-cards .cards .share-links a {
   display: flex;
   text-decoration: none;
-  color: attr(color);
+  margin-top: 7px;
 }
 
 .social-cards .cards .share-links a img {
