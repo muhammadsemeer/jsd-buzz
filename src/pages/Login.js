@@ -14,8 +14,12 @@ const Login = () => {
     password: "",
   });
   useEffect(() => {
+    document.querySelector("header").style.display = "none"
     if (admin.isLogged) {
       setRedirect(true);
+    }
+    return () => {
+      document.querySelector("header").style.display = "flex"
     }
   }, [admin.isLogged]);
   if (redirect) {
