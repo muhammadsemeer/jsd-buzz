@@ -25,7 +25,7 @@ const Login = () => {
     };
   }, [admin.isLogged]);
   if (redirect) {
-    return <Redirect path="/quiz/today" />;
+    return <Redirect to="/quiz/today" />;
   }
   const doLogin = (event) => {
     event.preventDefault();
@@ -62,6 +62,7 @@ const Login = () => {
             id="email"
             value={value.email}
             onChange={handleValue}
+            required
           />
         </div>
         <div className="input-feild">
@@ -72,6 +73,7 @@ const Login = () => {
             id="password"
             value={value.password}
             onChange={handleValue}
+            required
           />
         </div>
         <div className="input-feild">
