@@ -4,6 +4,7 @@ import TopBar from "./components/TopBar/TopBar";
 import axios from "axios";
 import AuthContextProvider from "./contexts/authContext";
 import StatsContextProvider from "./contexts/statsContext";
+import Login from "./pages/Login";
 axios.defaults.baseURL = process.env.REACT_APP_API_PATH;
 
 function App() {
@@ -18,6 +19,11 @@ function App() {
                 <Home />
               </Route>
             </Switch>
+          </Router>
+          <Router basename="/admin">
+            <Route path="/login">
+              <Login />
+            </Route>
           </Router>
         </StatsContextProvider>
       </AuthContextProvider>
