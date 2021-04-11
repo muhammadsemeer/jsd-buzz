@@ -14,13 +14,15 @@ const Login = () => {
     password: "",
   });
   useEffect(() => {
-    document.querySelector("header").style.display = "none"
+    document.querySelector("header").style.display = "none";
+    document.querySelector(".sidebar").style.display = "none";
     if (admin.isLogged) {
       setRedirect(true);
     }
     return () => {
-      document.querySelector("header").style.display = "flex"
-    }
+      document.querySelector("header").style.display = "flex";
+      document.querySelector(".sidebar").style.display = "flex";
+    };
   }, [admin.isLogged]);
   if (redirect) {
     return <Redirect path="/admin" />;
