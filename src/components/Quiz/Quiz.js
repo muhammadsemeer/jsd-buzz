@@ -131,7 +131,7 @@ const Quiz = ({ quiz }) => {
                   name="answer"
                   id={index}
                   data-label={`label${index}`}
-                  onChange={(e) => checkAnswer(e)}
+                  onChange={checkAnswer}
                   value={data.answerText}
                   hidden
                   disabled={answered ? true : false}

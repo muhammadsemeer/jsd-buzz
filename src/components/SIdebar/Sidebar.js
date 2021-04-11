@@ -19,7 +19,7 @@ const Sidebar = () => {
       <nav>
         <ul>
           <li>
-            <NavLink exact to="/" activeClassName="active">
+            <NavLink exact to="/quiz/today" activeClassName="active">
               Today's Quiz
             </NavLink>
           </li>

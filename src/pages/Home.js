@@ -11,12 +11,16 @@ const Home = () => {
   const [quiz, setQuiz] = useState([]);
   const [load, setLoad] = useState(false);
   useEffect(() => {
+    document.querySelector(".sidebar").style.display = "none";
     axios.get("/quiz").then((response) => {
       setQuiz(response.data);
       if (response.data.length !== 0) {
         setLoad(true);
       }
     });
+    return () => {
+      document.querySelector(".sidebar").style.display = "flex";
+    };
   }, []);
   const { auth } = useContext(authContext);
   return (

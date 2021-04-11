@@ -25,7 +25,7 @@ const Login = () => {
     };
   }, [admin.isLogged]);
   if (redirect) {
-    return <Redirect path="/admin" />;
+    return <Redirect path="/quiz/today" />;
   }
   const doLogin = (event) => {
     event.preventDefault();

@@ -1,5 +1,6 @@
 .sidebar {
   position: fixed;
+  top: 0;
   left: 0;
   width: 200px;
   height: 100vh;
@@ -30,7 +31,7 @@
 .sidebar .head h1 {
   margin-top: 10px;
   font-size: 26px;
-  color: rgba(255, 255, 255, 0.8);;
+  color: #4f6af9;
 }
 
 .sidebar .head img {
@@ -74,4 +75,5 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  border-radius: 6px;
 }

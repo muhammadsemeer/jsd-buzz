@@ -6,6 +6,8 @@ import AuthContextProvider from "./contexts/authContext";
 import StatsContextProvider from "./contexts/statsContext";
 import Login from "./pages/Login";
 import Sidebar from "./components/SIdebar/Sidebar";
+import PrivateRoute from "./components/PrivateRoute.js/PrivateRoute";
+import Admin from "./pages/Admin";
 axios.defaults.baseURL = process.env.REACT_APP_API_PATH;
 
 function App() {
@@ -27,6 +29,9 @@ function App() {
               <Route path="/login">
                 <Login />
               </Route>
+              <PrivateRoute exact path="/quiz/today">
+                <Admin />
+              </PrivateRoute>
             </Switch>
           </Router>
         </StatsContextProvider>
