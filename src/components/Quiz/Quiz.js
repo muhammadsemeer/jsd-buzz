@@ -3,13 +3,14 @@ import "./Quiz.css";
 import party from "party-js";
 import axios from "axios";
 import { authContext } from "../../contexts/authContext";
+import { statsContext } from "../../contexts/statsContext";
 
 const Quiz = ({ quiz }) => {
   const { auth } = useContext(authContext);
   const { question, answerOptions, _id } = quiz[0];
   const [answered, setAnswered] = useState(false);
   const [answer, setAnswer] = useState({});
-  const [stats, setStats] = useState();
+  const { stats, setStat } = useContext(statsContext);
   const checkAnswer = (event) => {
     setAnswered(true);
     if (answerOptions[event.target.id].isCorrect) {
@@ -39,7 +40,7 @@ const Quiz = ({ quiz }) => {
           document.getElementById(`prog${event.target.id}`).style.background =
             "#84ff82";
           axios.get("/quiz/stats").then(({ data }) => {
-            setStats(data);
+            setStat(data);
           });
         });
     } else {
@@ -56,7 +57,7 @@ const Quiz = ({ quiz }) => {
           document.getElementById(`prog${event.target.id}`).style.background =
             "#ff5858";
           axios.get("/quiz/stats").then(({ data }) => {
-            setStats(data);
+            setStat(data);
           });
         });
     }
@@ -72,9 +73,6 @@ const Quiz = ({ quiz }) => {
           setAnswer(data);
         }
       });
-    axios.get("/quiz/stats").then(({ data }) => {
-      setStats(data);
-    });
   }, [auth.name]);
   const colors = ["#f53b86", "#ffd540", "#4199ff", "#6e76ff"];
   return (
@@ -90,7 +88,6 @@ const Quiz = ({ quiz }) => {
                   name="answer"
                   id={index}
                   data-label={`label${index}`}
-                  onChange={checkAnswer}
                   value={data.answerText}
                   checked
                   hidden
@@ -106,7 +103,9 @@ const Quiz = ({ quiz }) => {
                       <span className="op">{data.answerText}</span>
                       <span className="percentage">
                         {stats
-                          ? (stats.options[index] / stats.totalAnswers) * 100
+                          ? Math.round(
+                              (stats.options[index] / stats.totalAnswers) * 100
+                            )
                           : 0}
                         %
                       </span>
@@ -132,7 +131,7 @@ const Quiz = ({ quiz }) => {
                   name="answer"
                   id={index}
                   data-label={`label${index}`}
-                  onChange={checkAnswer}
+                  onChange={(e) => checkAnswer(e)}
                   value={data.answerText}
                   hidden
                   disabled={answered ? true : false}
@@ -144,7 +143,10 @@ const Quiz = ({ quiz }) => {
                       {answered ? (
                         <span className="percentage">
                           {stats
-                            ? (stats.options[index] / stats.totalAnswers) * 100
+                            ? Math.round(
+                                (stats.options[index] / stats.totalAnswers) *
+                                  100
+                              )
                             : 0}
                           %
                         </span>

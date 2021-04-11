@@ -2,14 +2,17 @@ import "./SocialCards.css";
 import telegram from "../../telegram.svg";
 import whatsapp from "../../whatsapp.svg";
 import logo from "../../jsd.jpg";
+import { useContext } from "react";
+import { statsContext } from "../../contexts/statsContext";
 
 const SocialCards = () => {
+  const { stats } = useContext(statsContext);
   return (
     <div className="social-cards">
       <div className="cards card1">
         <div className="answered">
           <p className="head">Answered</p>
-          <h2>4</h2>
+          <h2>{stats ? stats.totalAnswers : 0}</h2>
         </div>
         <div className="share-links">
           <p className="head">Share</p>
