@@ -22,6 +22,7 @@ function App() {
             </Switch>
           </Router>
           <Router basename="/admin">
+            <Sidebar />
             <Switch>
               <Route path="/login">
                 <Login />
