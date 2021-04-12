@@ -4,12 +4,6 @@ import "./Sidebar.css";
 import logo from "../../jsd-buzz.svg";
 
 const Sidebar = () => {
-  useEffect(() => {
-    document.querySelector("header").style.display = "none";
-    return () => {
-      document.querySelector("header").style.display = "flex";
-    };
-  });
   return (
     <div className="sidebar">
       <div className="head">
