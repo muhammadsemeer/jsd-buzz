@@ -7,9 +7,9 @@ import StatsContextProvider from "./contexts/statsContext";
 import Login from "./pages/Login";
 import Sidebar from "./components/SIdebar/Sidebar";
 import PrivateRoute from "./components/PrivateRoute.js/PrivateRoute";
-// import Admin from "./pages/Admin";
+import Admin from "./pages/Admin";
 axios.defaults.baseURL = process.env.REACT_APP_API_PATH;
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
                 <Login />
               </Route>
               <PrivateRoute exact path="/quiz/today">
-                {/* <Admin /> */}
+                <Admin />
               </PrivateRoute>
             </Switch>
           </Router>
