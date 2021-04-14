@@ -14,8 +14,11 @@ const AuthContextProvider = ({ children }) => {
     }
   );
   const logUser = (user) => {
-    localStorage.setItem("isUser", JSON.stringify(user));
-    setAuth(user);
+    let format = /^[a-zA-Z]/g;
+    if (format.test(user.name)) {
+      localStorage.setItem("isUser", JSON.stringify(user));
+      setAuth(user);
+    }
   };
   const logAdmin = (admin) => {
     localStorage.setItem("admin", JSON.stringify(admin));
