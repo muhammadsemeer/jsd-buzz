@@ -16,7 +16,7 @@ const Explanation = ({ explanation, explanationCode }) => {
       <div className="pop">
         {explanationCode !== "" ? <QuizCode code={explanationCode} /> : null}
         <h3>Explanation</h3>
-        <p>{explanation}</p>
+        <pre>{explanation}</pre>
         <div className="btn">
           <button onClick={() => showExp(false)}>Close</button>
         </div>

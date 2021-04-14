@@ -32,9 +32,12 @@
   margin: 10px 0 0 0;
 }
 
-.exp-pop .pop p {
+.exp-pop .pop pre {
   color: rgba(21, 25, 32, 0.5);
   margin: 10px 0;
+  font-family: "Mulish", sans-serif;
+  white-space: pre-wrap;
+  width: 100%;
 }
 
 .exp-pop .pop .btn {

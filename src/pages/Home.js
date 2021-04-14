@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <>
       {!auth.user ? <UserPop /> : null}
-      {exp && quiz ? (
+      {exp && quiz && quiz[0].expalanation  ? (
         <Explanation
           explanation={quiz[0].expalanation}
           explanationCode={quiz[0].explanationCode}
