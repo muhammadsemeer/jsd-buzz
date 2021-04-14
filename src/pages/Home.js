@@ -7,6 +7,7 @@ import { authContext } from "../contexts/authContext";
 import UserPop from "../components/UserPop/UserPop";
 import unhappyEmoji from "../emoji-unhappy.svg";
 import Explanation from "../components/Explanation/Explanation";
+import { statsContext } from "../contexts/statsContext";
 
 const Home = () => {
   const [quiz, setQuiz] = useState([]);
@@ -24,10 +25,11 @@ const Home = () => {
     };
   }, []);
   const { auth } = useContext(authContext);
+  const { exp } = useContext(statsContext);
   return (
     <>
       {!auth.user ? <UserPop /> : null}
-      {load ? (
+      {exp && quiz ? (
         <Explanation
           explanation={quiz[0].expalanation}
           explanationCode={quiz[0].explanationCode}

@@ -1,6 +1,7 @@
 import QuizCode from "../QuizCode/QuizCode";
-import Exp from "./Exp.css";
-import { useEffect } from "react";
+import "./Exp.css";
+import { useContext, useEffect } from "react";
+import { statsContext } from "../../contexts/statsContext";
 
 const Explanation = ({ explanation, explanationCode }) => {
   useEffect(() => {
@@ -9,28 +10,15 @@ const Explanation = ({ explanation, explanationCode }) => {
       document.querySelector("body").classList.remove("no-scroll");
     };
   }, []);
+  const { showExp } = useContext(statsContext);
   return (
-    <div className="exp-pop">
+    <div className="exp-pop" onClick={() => showExp(false)}>
       <div className="pop">
-        {/* {explanationCode !== "" ? ( */}
-        <QuizCode
-          code={`{
-function foo() 
-{
-let a = b = 0;
-a++;
-return a;
-}
-foo();
-typeof a;
-typeof b
-};`}
-        />
-        {/* ) : null} */}
+        {explanationCode !== "" ? <QuizCode code={explanationCode} /> : null}
         <h3>Explanation</h3>
         <p>{explanation}</p>
         <div className="btn">
-          <button>Close</button>
+          <button onClick={() => showExp(false)}>Close</button>
         </div>
       </div>
     </div>
