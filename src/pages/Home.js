@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { authContext } from "../contexts/authContext";
 import UserPop from "../components/UserPop/UserPop";
 import unhappyEmoji from "../emoji-unhappy.svg";
+import Explanation from "../components/Explanation/Explanation";
 
 const Home = () => {
   const [quiz, setQuiz] = useState([]);
@@ -26,6 +27,12 @@ const Home = () => {
   return (
     <>
       {!auth.user ? <UserPop /> : null}
+      {load ? (
+        <Explanation
+          explanation={quiz[0].expalanation}
+          explanationCode={quiz[0].explanationCode}
+        />
+      ) : null}
       <main>
         <aside>
           {load ? (

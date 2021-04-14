@@ -11,8 +11,12 @@ const Quiz = ({ quiz }) => {
   const [answered, setAnswered] = useState(false);
   const [answer, setAnswer] = useState({});
   const { stats, setStat } = useContext(statsContext);
+  const [showExp, setShow] = useState(false);
   const checkAnswer = (event) => {
     setAnswered(true);
+    setTimeout(() => {
+      setShow(true);
+    }, 2000);
     if (answerOptions[event.target.id].isCorrect) {
       party.cursor({
         color: ["#ff5858", "#84ff82", "#ffd540", "#5891ff"],

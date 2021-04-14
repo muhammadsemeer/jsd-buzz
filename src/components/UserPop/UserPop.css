@@ -78,8 +78,11 @@ body.no-scroll {
 @media (min-width: 550px) {
   .user-pop .pop {
     position: relative;
-    width: 400px;
-    height: 400px;
+    min-width: 400px;
+    max-width: 525px;
+    padding: 25px;
+    min-height: 400px;
+    height: auto;
     background: #fff;
     border-radius: 24px;
     display: flex;
