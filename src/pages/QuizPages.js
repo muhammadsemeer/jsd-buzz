@@ -30,7 +30,6 @@ const QuizPages = ({ add }) => {
   const addQuiz = (event) => {
     event.preventDefault();
     axios.post("/quiz", { ...value, answerOptions }).then(({ data }) => {
-      console.log(data);
       history.push("/quiz/today");
     });
   };
@@ -57,7 +56,6 @@ const QuizPages = ({ add }) => {
               id="questionCode"
               onChange={handleValue}
               value={value.questionCode}
-              required
             ></textarea>
           </div>
           <div className="form-field">

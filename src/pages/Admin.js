@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../css/admin.css"
+import "../css/admin.css";
 import QuizCode from "../components/QuizCode/QuizCode";
 
 const Admin = () => {
@@ -31,9 +31,7 @@ const Admin = () => {
       {load ? (
         <div className="quiz">
           <h2 className="question">{question}</h2>
-          {quiz?.questionCode ? (
-            <QuizCode code={quiz.questionCode} />
-          ) : null}
+          {quiz?.questionCode ? <QuizCode code={quiz.questionCode} /> : null}
           <div className="options">
             {answerOptions.map((data, index) => (
               <div key={index} className="option-feild">
@@ -44,35 +42,39 @@ const Admin = () => {
                   data-label={`label${index}`}
                   value={data.answerText}
                   hidden
+                  checked={data.isCorrect ? true : false}
                   disabled
                 />
-                <label id={`label${index}`} htmlFor={index}>
+                <label
+                  id={`label${index}`}
+                  htmlFor={index}
+                  className={data.isCorrect ? "correct" : ""}
+                >
                   <div>
                     <div className="content">
                       <span className="op">{data.answerText}</span>
-                        <span className="percentage">
-                          {stats
-                            ? Math.round(
-                                (stats.options[index] / stats.totalAnswers) *
-                                  100
-                              )
-                            : 0}
-                          %
-                        </span>
+                      <span className="percentage">
+                        {stats
+                          ? Math.round(
+                              (stats.options[index] / stats.totalAnswers) * 100
+                            )
+                          : 0}
+                        %
+                      </span>
                     </div>
-                      <div className="progress">
-                        <span
-                          id={`prog${index}`}
-                          style={{
-                            width: stats
-                              ? (stats.options[index] / stats.totalAnswers) *
-                                  100 +
-                                "%"
-                              : 0 + "%",
-                            background: colors[index],
-                          }}
-                        ></span>
-                      </div>
+                    <div className="progress">
+                      <span
+                        id={`prog${index}`}
+                        style={{
+                          width: stats
+                            ? (stats.options[index] / stats.totalAnswers) *
+                                100 +
+                              "%"
+                            : 0 + "%",
+                          background: colors[index],
+                        }}
+                      ></span>
+                    </div>
                   </div>
                 </label>
               </div>
