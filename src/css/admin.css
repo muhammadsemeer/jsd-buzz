@@ -7,3 +7,74 @@
 .admin .quiz-code {
   padding: 0;
 }
+
+.admin .form {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+.admin .form form {
+  width: 500px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 25px;
+  color: #4f6af9;
+}
+
+.admin .form form .form-field {
+  display: flex;
+  flex-direction: column;
+}
+.admin .form form .form-field > * {
+  margin: 10px 0;
+}
+
+.admin .form form .form-field input,
+.admin .form form .form-field textarea {
+  font-family: "Mulish", sans-serif;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.75);
+  color: #4f6af9;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.admin .form form .form-field textarea {
+  height: 200px;
+}
+
+.admin .form form .form-field input[type="submit"] {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.admin .form form .form-field div {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.admin .form form .form-field div label {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.admin .form form .form-field div input:checked ~ label {
+  color: #fff;
+  background: #4f6af9;
+}

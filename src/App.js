@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Sidebar from "./components/SIdebar/Sidebar";
 import PrivateRoute from "./components/PrivateRoute.js/PrivateRoute";
 import Admin from "./pages/Admin";
+import QuizPages from "./pages/QuizPages";
 axios.defaults.baseURL = process.env.REACT_APP_API_PATH;
 axios.defaults.withCredentials = true;
 
@@ -32,6 +33,9 @@ function App() {
               </Route>
               <PrivateRoute exact path="/quiz/today">
                 <Admin />
+              </PrivateRoute>
+              <PrivateRoute path="/add-quiz">
+                <QuizPages add />
               </PrivateRoute>
             </Switch>
           </Router>
