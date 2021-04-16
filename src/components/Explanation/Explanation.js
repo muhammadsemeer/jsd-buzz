@@ -12,7 +12,7 @@ const Explanation = ({ explanation, explanationCode }) => {
   }, []);
   const { showExp } = useContext(statsContext);
   return (
-    <div className="exp-pop" onClick={() => showExp(false)}>
+    <div className="exp-pop">
       <div className="pop">
         {explanationCode !== "" ? <QuizCode code={explanationCode} /> : null}
         <h3>Explanation</h3>

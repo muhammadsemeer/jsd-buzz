@@ -6,10 +6,15 @@
   justify-content: center;
 }
 
+.quiz .exp {
+  animation: error 0.4s 1 linear;
+  margin: 10px;
+  text-align: right;
+}
+
 .quiz .question {
   color: #212e5a;
   font-weight: 600;
-  margin: 25px 0;
 }
 
 .quiz .options > * {

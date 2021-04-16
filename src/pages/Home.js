@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <>
       {!auth.user ? <UserPop /> : null}
-      {exp && quiz ? (
+      {exp && quiz && quiz[0].expalanation  ? (
         <Explanation
           explanation={quiz[0].expalanation}
           explanationCode={quiz[0].explanationCode}
@@ -37,6 +37,9 @@ const Home = () => {
       ) : null}
       <main>
         <aside>
+        {quiz[0]?.questionCode ? (
+            <QuizCode code={quiz[0].questionCode} />
+          ) : null}
           {load ? (
             <Quiz quiz={quiz} />
           ) : (
@@ -50,9 +53,9 @@ const Home = () => {
           </div>
         </aside>
         <aside>
-          {quiz[0]?.questionCode ? (
+          {/* {quiz[0]?.questionCode ? (
             <QuizCode code={quiz[0].questionCode} />
-          ) : null}
+          ) : null} */}
           <div className="lg">
             <SocialCards />
           </div>

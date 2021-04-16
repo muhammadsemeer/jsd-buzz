@@ -4,6 +4,7 @@ import party from "party-js";
 import axios from "axios";
 import { authContext } from "../../contexts/authContext";
 import { statsContext } from "../../contexts/statsContext";
+import bulb from "./bulb.svg";
 
 const Quiz = ({ quiz }) => {
   const { auth } = useContext(authContext);
@@ -13,9 +14,6 @@ const Quiz = ({ quiz }) => {
   const { stats, setStat, showExp } = useContext(statsContext);
   const checkAnswer = (event) => {
     setAnswered(true);
-    setTimeout(() => {
-      showExp(true);
-    }, 1500);
     if (answerOptions[event.target.id].isCorrect) {
       party.cursor({
         color: ["#ff5858", "#84ff82", "#ffd540", "#5891ff"],
@@ -80,6 +78,11 @@ const Quiz = ({ quiz }) => {
   const colors = ["#f53b86", "#ffd540", "#4199ff", "#6e76ff"];
   return (
     <div className="quiz">
+      {answered ? (
+        <div className="exp" onClick={() => showExp(true)}>
+          <img src={bulb} alt="exp_bulb" />
+        </div>
+      ) : null}
       <h2 className="question">{question}</h2>
       <div className="options">
         {answerOptions.map((data, index) => (
