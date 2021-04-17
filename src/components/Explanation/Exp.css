@@ -11,7 +11,7 @@
 }
 
 .exp-pop .pop {
-  max-height: 500px;
+  max-height: 600px;
   overflow-y: auto;
   width: 320px;
   background: #fff;
@@ -25,6 +25,7 @@
 
 .exp-pop .quiz-code {
   padding: 50px 0 0 0;
+  margin: 150px 0 0 0;
 }
 
 .exp-pop .pop h3 {
@@ -64,6 +65,7 @@
   }
   .exp-pop .quiz-code {
     padding: 10px;
+    margin: 250px 0 0 0;
   }
 }
 @media (min-width: 550px) {
@@ -72,5 +74,11 @@
   }
   .exp-pop .pop {
     width: 525px;
+  }
+}
+@media (max-width: 400px) {
+  .exp-pop .quiz-code {
+    padding: 0;
+    margin-top: 300px;
   }
 }
