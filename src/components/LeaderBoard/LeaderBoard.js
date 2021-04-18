@@ -24,7 +24,7 @@ const LeaderBoard = () => {
       setLoad(true);
     });
   }, []);
-  const rows = board?.map((value, index) => ({ id: index, ...value }));
+  const rows = board?.map((value, index) => ({ id: index + 1, ...value }));
   const columns = [
     {
       field: "id",
