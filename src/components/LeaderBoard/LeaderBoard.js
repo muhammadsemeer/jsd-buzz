@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import { CircularProgress, makeStyles } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -7,6 +7,11 @@ const useStyles = makeStyles({
   root: {
     margin: "50px 0 0 0",
     height: "450px",
+  },
+  load: {
+    margin: "50px 0 0 0",
+    width: "100%",
+    textAlign: "center",
   },
 });
 
@@ -46,7 +51,11 @@ const LeaderBoard = () => {
       rowsPerPageOptions={[5, 10, 20]}
       density="comfortable"
     />
-  ) : null;
+  ) : (
+    <div>
+      <CircularProgress />
+    </div>
+  );
 };
 
 export default LeaderBoard;

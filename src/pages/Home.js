@@ -9,6 +9,7 @@ import unhappyEmoji from "../emoji-unhappy.svg";
 import Explanation from "../components/Explanation/Explanation";
 import { statsContext } from "../contexts/statsContext";
 import LeaderBoard from "../components/LeaderBoard/LeaderBoard";
+import { CircularProgress } from "@material-ui/core";
 
 const Home = () => {
   const [quiz, setQuiz] = useState([]);
@@ -16,10 +17,8 @@ const Home = () => {
   useEffect(() => {
     document.querySelector(".sidebar").style.display = "none";
     axios.get("/quiz").then((response) => {
+      setLoad(true);
       setQuiz(response.data);
-      if (response.data.length !== 0) {
-        setLoad(true);
-      }
     });
     return () => {
       document.querySelector(".sidebar").style.display = "flex";
@@ -37,29 +36,37 @@ const Home = () => {
         />
       ) : null}
       <main>
-        <aside>
-          {quiz[0]?.questionCode ? (
-            <QuizCode code={quiz[0].questionCode} />
-          ) : null}
-          {load ? (
-            <Quiz quiz={quiz} />
-          ) : (
-            <div className="info">
-              <img src={unhappyEmoji} alt="unhappy-emoji" />
-              <h1>No Quiz Uploaded</h1>
-            </div>
-          )}
-          <div className="md">
-            <LeaderBoard />
-            <SocialCards />
+        {load ? (
+          <>
+            <aside>
+              {quiz[0]?.questionCode ? (
+                <QuizCode code={quiz[0].questionCode} />
+              ) : null}
+              {quiz[0] ? (
+                <Quiz quiz={quiz} />
+              ) : (
+                <div className="info">
+                  <img src={unhappyEmoji} alt="unhappy-emoji" />
+                  <h1>No Quiz Uploaded</h1>
+                </div>
+              )}
+              <div className="md">
+                <LeaderBoard />
+                <SocialCards />
+              </div>
+            </aside>
+            <aside>
+              <div className="lg">
+                <LeaderBoard />
+                <SocialCards />
+              </div>
+            </aside>
+          </>
+        ) : (
+          <div style={{ height: "80vh", display: "flex", alignItems: "center" }}>
+            <CircularProgress />
           </div>
-        </aside>
-        <aside>
-          <div className="lg">
-            <LeaderBoard />
-            <SocialCards />
-          </div>
-        </aside>
+        )}
       </main>
     </>
   );
