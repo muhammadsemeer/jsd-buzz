@@ -27,6 +27,11 @@ const LeaderBoard = () => {
   const rows = board?.map((value, index) => ({ id: index, ...value }));
   const columns = [
     {
+      field: "id",
+      headerName: "#",
+      width: 75,
+    },
+    {
       field: "name",
       headerName: "Name",
       width: 200,
@@ -37,7 +42,7 @@ const LeaderBoard = () => {
     {
       field: "point",
       headerName: "Score",
-      width: 200,
+      width: 175,
       disableClickEventBubbling: true,
     },
   ];
