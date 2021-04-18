@@ -1,14 +1,13 @@
 .quiz {
   width: 400px;
-  height: 600px;
+  max-height: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .quiz .exp {
   animation: error 0.4s 1 linear;
-  margin: 10px;
+  margin: 20px;
   text-align: right;
 }
 
