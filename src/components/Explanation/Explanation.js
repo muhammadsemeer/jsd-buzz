@@ -1,7 +1,15 @@
-import QuizCode from "../QuizCode/QuizCode";
+import Highlight from "react-highlight";
 import "./Exp.css";
 import { useContext, useEffect } from "react";
 import { statsContext } from "../../contexts/statsContext";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Button,
+} from "@material-ui/core";
 
 const Explanation = ({ explanation, explanationCode }) => {
   useEffect(() => {
@@ -10,18 +18,30 @@ const Explanation = ({ explanation, explanationCode }) => {
       document.querySelector("body").classList.remove("no-scroll");
     };
   }, []);
-  const { showExp } = useContext(statsContext);
+  const { exp, showExp } = useContext(statsContext);
   return (
-    <div className="exp-pop">
-      <div className="pop">
-        {explanationCode !== "" ? <QuizCode code={explanationCode} /> : null}
-        <h3>Explanation</h3>
-        <pre>{explanation}</pre>
-        <div className="btn">
-          <button onClick={() => showExp(false)}>Close</button>
-        </div>
-      </div>
-    </div>
+    <Dialog
+      open={exp}
+      onClose={() => showExp(false)}
+      scroll="paper"
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+    >
+      <DialogTitle id="alert-dialog-title">Explanation</DialogTitle>
+      <DialogContent>
+        <DialogContentText id="alert-dialog-description">
+          {explanationCode !== "" ? <Highlight language="javascript">{explanationCode}</Highlight> : null}
+          {explanation}
+          {explanation}
+          {explanation}
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={() => showExp(false)} color="primary">
+          Close
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 };
 
