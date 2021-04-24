@@ -32,8 +32,6 @@ const Explanation = ({ explanation, explanationCode }) => {
         <DialogContentText id="alert-dialog-description">
           {explanationCode !== "" ? <Highlight language="javascript">{explanationCode}</Highlight> : null}
           {explanation}
-          {explanation}
-          {explanation}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
